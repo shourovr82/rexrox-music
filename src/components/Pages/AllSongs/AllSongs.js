@@ -14,26 +14,19 @@ const AllSongs = () => {
       )
   })
 
-  if (isLoading) {
-    console.log('laoding')
-  }
-
 
   return (
-    <div className='py-3'>
+    <div className='py-2 '>
       <div>
-        <div className='flex items-center gap-4'>
+        <div className='flex items-center gap-4 '>
           <h2 className='text-xl font-bold'>All Songs</h2>
           <span className='text-slate-400 font-semibold text-xs'> {songs?.length && `- Total ${songs?.length}`}+</span>
         </div>
-        <div>
 
-          {/*  all songs page */}
-
-          <div className='w-full '>
-            <Songs></Songs>
-          </div>
-        </div >
+        {/*  all songs page */}
+        <div className=''>
+          <Songs></Songs>
+        </div>
 
       </div>
 

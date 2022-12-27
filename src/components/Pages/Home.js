@@ -9,6 +9,7 @@ const Home = () => {
       <div className='px-5 '>
         <AllSongs></AllSongs>
       </div>
+
       <div className='grid grid-cols-7 gap-3 border px-5'>
         <div className='col-span-3 border border-black'>
           <NowPlaying></NowPlaying>

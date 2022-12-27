@@ -6,7 +6,6 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import './Allsongs.css'
 import { useQuery } from '@tanstack/react-query';
-import SingleSong from './SingleSong';
 
 const Songs = () => {
 
@@ -18,21 +17,16 @@ const Songs = () => {
       )
   })
 
-  if (isLoading) {
-    console.log('laoding')
-  }
 
 
-  if (songs) {
-    console.log(songs)
-  }
+
 
   return (
-    <div className='relative border mt-4' >
+    <div className='relative p-2 rounded-lg ' >
       <Swiper
         slidesPerView={5}
-        spaceBetween={30}
-        slidesPerGroup={3}
+        spaceBetween={25}
+        slidesPerGroup={1}
         loop={true}
         loopFillGroupWithBlank={true}
         // pagination={{
@@ -42,18 +36,27 @@ const Songs = () => {
           clickable: true
         }}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper overflow-hidden  disable-text-selection  rounded-lg   "
       >
         {
           songs?.map((song, index) =>
-            <SwiperSlide key={index} className='shadow-2xl cursor-pointer' >
-              <div>
-                <h2>{song.title}</h2>
-              </div>
+            <SwiperSlide key={index} className='cursor-pointer overflow-hidden rounded-lg' >
+              <div className="bg-base-100">
+                <figure className='shadow-xl rounded-xl' ><img className='rounded-lg' src={song.photo} alt="Shoes" /></figure>
+                <div className=" mt-3">
+                  <h2 className="text-sm font-bold ">
+                    {song.title}
+                  </h2>
+                  <h2 className="font-semibold text-slate-500 text-sm">
+                    {song.Artist}
+                  </h2>
 
+                </div>
+              </div>
             </SwiperSlide>)
         }
       </Swiper >
+
     </div >
   );
 };
