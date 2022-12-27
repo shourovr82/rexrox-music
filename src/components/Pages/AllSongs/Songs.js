@@ -5,12 +5,27 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import './Allsongs.css'
-import axios from 'axios';
-
+import { useQuery } from '@tanstack/react-query';
+import SingleSong from './SingleSong';
 
 const Songs = () => {
 
+  const { isLoading, error, data: songs } = useQuery({
+    queryKey: ['allsongs'],
+    queryFn: () =>
+      fetch('http://localhost:8080/allsongs').then(res =>
+        res.json()
+      )
+  })
 
+  if (isLoading) {
+    console.log('laoding')
+  }
+
+
+  if (songs) {
+    console.log(songs)
+  }
 
   return (
     <div className='relative border mt-4' >
@@ -29,17 +44,17 @@ const Songs = () => {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide className='shadow-2xl'>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
-    </div>
+        {
+          songs?.map((song, index) =>
+            <SwiperSlide key={index} className='shadow-2xl cursor-pointer' >
+              <div>
+                <h2>{song.title}</h2>
+              </div>
+
+            </SwiperSlide>)
+        }
+      </Swiper >
+    </div >
   );
 };
 

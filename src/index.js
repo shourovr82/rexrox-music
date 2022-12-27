@@ -4,13 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import MusicContexts from './MusicContext/MusicContexts';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const queryClient = new QueryClient()
 root.render(
   <React.StrictMode>
-    <MusicContexts>
-      <App />
-    </MusicContexts>
+    <QueryClientProvider client={queryClient}>
+      <MusicContexts>
+        <App />
+      </MusicContexts>
+    </QueryClientProvider>
+
   </React.StrictMode>
 );
 
