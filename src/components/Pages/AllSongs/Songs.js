@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -7,10 +7,10 @@ import { Pagination, Navigation } from "swiper";
 import './Allsongs.css'
 import { useQuery } from '@tanstack/react-query';
 import './Songs.css'
+import { RexroxContexts } from '../../../MusicContext/MusicContexts';
 
 const Songs = () => {
-  const [playButton, setPlayButton] = useState(false);
-
+  const { setMusicfile } = useContext(RexroxContexts);
   const { isLoading, error, data: songs } = useQuery({
     queryKey: ['allsongs'],
     queryFn: () =>
@@ -19,7 +19,6 @@ const Songs = () => {
       )
   })
 
-  console.log(playButton);
 
 
 
@@ -43,10 +42,10 @@ const Songs = () => {
         {
           songs?.map((song, index) =>
             <SwiperSlide key={index} className='cursor-pointer overflow-hidden rounded-lg' >
-              <div class=" group container   rounded-md  justify-center items-center  mx-auto  relative"><img className='rounded-lg shadow-lg  shadow-[#0000003b]' src={song.photo} alt="Shoes" />
-                <div class="absolute z-10 opacity-0 group-hover:opacity-100  top-16 left-16">
-                  <div class=" text-center">
-                    <button class="text-center rounded-lg p-2 bg-white  text-gray-700 font-bold text-lg">Play</button>
+              <div className=" group container   rounded-md  justify-center items-center  mx-auto  relative"><img className='rounded-lg shadow-lg  shadow-[#0000003b]' src={song.photo} alt="Shoes" />
+                <div className="absolute z-10 opacity-0 group-hover:opacity-100  top-16 left-16">
+                  <div className=" text-center">
+                    <button onClick={() => setMusicfile(song)} className="text-center rounded-lg p-2 bg-white  text-gray-700 font-bold text-lg">Play</button>
                   </div>
                 </div>
                 <div className=" m-2">
