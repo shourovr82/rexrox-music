@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -6,8 +6,10 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import './Allsongs.css'
 import { useQuery } from '@tanstack/react-query';
+import './Songs.css'
 
 const Songs = () => {
+  const [playButton, setPlayButton] = useState(false);
 
   const { isLoading, error, data: songs } = useQuery({
     queryKey: ['allsongs'],
@@ -17,7 +19,7 @@ const Songs = () => {
       )
   })
 
-
+  console.log(playButton);
 
 
 
@@ -41,10 +43,14 @@ const Songs = () => {
         {
           songs?.map((song, index) =>
             <SwiperSlide key={index} className='cursor-pointer overflow-hidden rounded-lg' >
-              <div className="bg-base-100">
-                <figure className='shadow-xl rounded-xl' ><img className='rounded-lg' src={song.photo} alt="Shoes" /></figure>
-                <div className=" mt-3">
-                  <h2 className="text-sm font-bold ">
+              <div class=" group container   rounded-md  justify-center items-center  mx-auto  relative"><img className='rounded-lg shadow-lg  shadow-[#0000003b]' src={song.photo} alt="Shoes" />
+                <div class="absolute z-10 opacity-0 group-hover:opacity-100  top-16 left-16">
+                  <div class=" text-center">
+                    <button class="text-center rounded-lg p-2 bg-white  text-gray-700 font-bold text-lg">Play</button>
+                  </div>
+                </div>
+                <div className=" m-2">
+                  <h2 className="text-[13px] font-bold ">
                     {song.title}
                   </h2>
                   <h2 className="font-semibold text-slate-500 text-sm">
@@ -52,7 +58,12 @@ const Songs = () => {
                   </h2>
 
                 </div>
+                <div>
+                </div>
+
               </div>
+
+
             </SwiperSlide>)
         }
       </Swiper >
