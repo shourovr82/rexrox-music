@@ -1,24 +1,61 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { RexroxContexts } from '../../../MusicContext/MusicContexts';
+import './nowplaying.css';
+import { GiNextButton, GiPreviousButton } from 'react-icons/gi';
+import { FaPause, FaPlay } from 'react-icons/fa';
+import playbutton from '../../../Photos/114093-play-and-pause.json'
 
 const NowPlaying = () => {
   const { musicFile, setMusicfile } = useContext(RexroxContexts);
-  console.log(musicFile);
+  const [play, setPlay] = useState(false);
+
+
+
   return (
-    <div className='border rounded-lg p-3 bg-white shadow-lg shadow-black h-full'>
-      <div className='flex py-2 justify-center items-center'>
-        <img className='w-28 rounded-2xl shadow-xl shadow-slate-400' src="https://i.postimg.cc/0yh60gKV/image.png" alt="" />
+
+
+    <div className="player-container p-2">
+      <div className="img-container flex justify-center">
+        <img src={musicFile.photo} alt="Album Art" />
       </div>
-      <div className='flex justify-center text-center'>
+      <div className='flex justify-center mt-3'>
         <div>
-          <h2 className='text-sm font-bold'>Saint-Tropex</h2>
-          <p className='text-xs font-semibold text-slate-400'>Post Melone</p>
+          <h2 id="title">{musicFile?.title}</h2>
+          <h3 id="artist">{musicFile?.Artist}</h3>
         </div>
       </div>
-      <div>
-        <audio controls autoPlay src={musicFile && musicFile.link}></audio>
+      <audio src={`${musicFile?.link}`} ></audio>
+      <div className="progress-container" id="progress-container">
+        <div className="progress" id="progress"></div>
+        <div className="duration-wrapper">
+          <span id="current-time">0:30</span>
+          <span id="duration">2:06</span>
+        </div>
+      </div>
+      <div className="flex items-center justify-center gap-4">
+        <span><GiPreviousButton /></span>
+
+        <div className="containers">
+          <div className="rounded-full  mx-auto  bg-gradient-to-r p-[6px] from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
+            <button onClick={() => setPlay(!play)}
+              className={`transition-all playbtn bg-white  ${!play ? 'actives ' : 'move'}`}
+            >
+              {play ?
+                <FaPlay className='z-10  playicon text-indigo-600' />
+                :
+                <FaPause className='z-10  text-white pauseicon ' />
+              }
+
+
+            </button>
+          </div>
+
+        </div>
+        <span><GiNextButton /></span>
       </div>
     </div>
+
+
   );
 };
 

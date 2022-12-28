@@ -1,0 +1,164 @@
+/* Images created by: https://unsplash.com/@pawel_czerwinski */
+
+/* font-family: 'League Spartan', sans-serif; */
+
+
+body {
+  background: #c9ced3;
+}
+
+.player-container {
+  background: #e7e7e7;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.img-container img {
+  width: 25%;
+  object-fit: cover;
+  box-shadow: 0 15px 40px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+
+
+
+
+
+/* Progress */
+.progress-container {
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 40px 20px;
+  height: 8px;
+  width: 90%;
+}
+
+.progress {
+  background: #242323;
+  border-radius: 5px;
+  height: 100%;
+  /* change this to show progress */
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.duration-wrapper {
+  position: relative;
+  top: -25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+.playicon {
+  transition: .5s all;
+}
+
+.pauseicon {
+  transform: rotateZ('-25px');
+}
+
+.btn-style {
+  border: 3px solid red;
+}
+
+.playbtn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  outline: none;
+  border-spacing: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s all;
+  cursor: pointer;
+}
+
+.playbtn::before {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: #1f3a93;
+  transform: scale(0);
+  transform-origin: 83% 86%;
+  transition-property: transform;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+}
+
+.playbtn.actives::before {
+  transition-timing-function: ease;
+  transform: scale(1);
+}
+
+.playbtn .play {
+  width: 65px;
+  height: 65px;
+  background: #fff;
+  margin-left: 15px;
+  z-index: 100;
+  clip-path: polygon(0 0, 80% 48%, 0 100%, 0% 100%);
+  transition: clip-path 0.5s ease;
+  transition-delay: 0.4s;
+}
+
+.playbtn .play.actives {
+  transition: clip-path 0.1s;
+  clip-path: polygon(0 0, 27% 0, 27% 100%, 0% 100%);
+}
+
+
+
+.pauseToPlay {
+  animation: pauseToPlay 0.4s ease alternate-reverse;
+}
+
+@keyframes pauseToPlay {
+  10% {
+    transform: rotate(90deg);
+    left: 73px;
+  }
+
+  20%,
+  40% {
+    transform: rotate(180deg);
+    left: 92px;
+  }
+
+  50% {
+    left: 92px;
+    height: 66px;
+    bottom: 57px;
+    transform: rotate(180deg);
+  }
+
+  100% {
+    left: 92px;
+    height: 66px;
+    bottom: 57px;
+    transform: rotate(180deg);
+  }
+}
+
+.small-box.active {
+  opacity: 1;
+  transition: opacity 1s;
+  animation: move 0.8s cubic-bezier(0.52, 1.64, 0.37, 0.66) forwards;
+  animation-delay: 0.2s;
+}
