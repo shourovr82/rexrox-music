@@ -101,7 +101,7 @@ const Navbar = () => {
 
                 <label tabIndex={0} className="flex justify-center items-center gap-2 m-1">Profile <FiChevronDown className='border border-slate-400 rounded-full text-xl' /> </label>
                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                  <li>Item 1</li>
+                  <li>User Name </li>
                   <li>Item 2</li>
                 </ul>
               </div>
