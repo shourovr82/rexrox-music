@@ -41,7 +41,7 @@ const NowPlaying = () => {
               className={`transition-all playbtn bg-white  ${!play ? 'actives ' : 'move'}`}
             >
               {play ?
-                <FaPlay className='z-10  playicon text-indigo-600' />
+                <FaPlay className='z-10  playicon text-indigo-500' />
                 :
                 <FaPause className='z-10  text-white pauseicon ' />
               }
