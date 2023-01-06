@@ -29,7 +29,7 @@ const Navbar = () => {
                   <div className="relative flex items-center w-full py-2 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
                     <div className="grid place-items-center h-full w-12 text-gray-300">
 
-                      <BsSearch className='text-red-900' />
+                      <BsSearch className='text-red-900 text-2xl' />
                     </div>
 
                     <input
