@@ -10,12 +10,12 @@ const Home = () => {
         <AllSongs></AllSongs>
       </div>
 
-      <div className='grid grid-cols-7 gap-3  px-5'>
-        <div className='col-span-3 '>
+      <div className='grid grid-cols-7 gap-5  px-5'>
+        <div className='col-span-3 border '>
           <NowPlaying></NowPlaying>
 
         </div>
-        <div className='col-span-4 border border-black'>
+        <div className='col-span-4 border '>
 
           <MostPlayed></MostPlayed>
         </div>
