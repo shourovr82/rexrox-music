@@ -37,7 +37,7 @@ const Songs = () => {
           clickable: true
         }}
         modules={[Pagination, Navigation]}
-        className="mySwiper overflow-hidden  disable-text-selection  rounded-lg   "
+        className="mySwiper overflow-hidden  disable-text-selection  rounded-xl   "
       >
         {
           songs?.map((song, index) =>
