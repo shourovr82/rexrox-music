@@ -49,7 +49,7 @@ const Songs = () => {
                   </div>
                 </div>
                 <div className=" m-2">
-                  <h2 className="text-[13px] font-bold ">
+                  <h2 className="text-[14px] font-bold ">
                     {song.title}
                   </h2>
                   <h2 className="font-semibold text-slate-500 text-sm">
