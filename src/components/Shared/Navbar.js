@@ -11,19 +11,19 @@ const Navbar = () => {
   return (
 
 
-    <header aria-label="Site Header" className="shadow-sm border-b-2 ">
+    <header aria-label="Site Header" className="shadow-sm  border-b-2 ">
       <div
-        className="mx-auto  flex py-4 w-11/12  items-center justify-between  "
+        className="mx-auto  flex py-2 w-11/12  items-center justify-between  "
       >
         {/*  nav left */}
-        <div className='flex  justify-center items-center gap-6'>
+        <div className='flex  justify-center  items-center gap-6'>
 
           <div>
             <button className='text-xl'><HiViewGridAdd /></button>
           </div>
 
           <form>
-            <div className="flex shadow-md items-center gap-4">
+            <div className="flex  shadow-md items-center gap-4">
               <div>
                 <div className='max-w-md mx-auto'>
                   <div className="relative flex items-center w-full py-2 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
@@ -73,6 +73,7 @@ const Navbar = () => {
         {/*  nav right */}
 
         <div>
+          {/* for mobile */}
           <div className="flex w-0 flex-1 justify-end lg:hidden">
             <button className="rounded-full bg-gray-100 p-2 text-gray-500" type="button">
               <span className="sr-only">Menu</span>
@@ -90,8 +91,8 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
-
-          <div className="hidden items-center gap-4  lg:flex">
+          {/* for desktop */}
+          <div className="hidden  items-center gap-4  lg:flex">
 
             <div className='flex justify-center items-center gap-3  border-r-2 pr-4 border-slate-400'>
               <div>
@@ -125,18 +126,10 @@ const Navbar = () => {
 
 
 
-        {/* <nav
-            aria-label="Site Nav"
-            className="hidden items-center justify-center gap-8 text-sm font-medium lg:flex lg:w-0 lg:flex-1"
-          >
-            <a className="text-gray-900" href="/">About</a>
-            <a className="text-gray-900" href="/">Blog</a>
-            <a className="text-gray-900" href="/">Projects</a>
-            <a className="text-gray-900" href="/">Contact</a>
-          </nav> */}
 
 
       </div>
+
 
       <div className="border-t border-gray-100 lg:hidden">
         <nav

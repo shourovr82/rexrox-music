@@ -23,10 +23,10 @@ const Songs = () => {
 
 
   return (
-    <div className='relative p-2 rounded-lg ' >
+    <div className='  relative p-2 rounded-lg ' >
       <Swiper
         slidesPerView={5}
-        spaceBetween={25}
+        spaceBetween={20}
         slidesPerGroup={1}
         loop={true}
         loopFillGroupWithBlank={true}
@@ -37,33 +37,16 @@ const Songs = () => {
           clickable: true
         }}
         modules={[Pagination, Navigation]}
-        className="mySwiper overflow-hidden  disable-text-selection  rounded-xl   "
+        className="mySwiper overflow-hidden   disable-text-selection  rounded-xl   "
       >
         {
           songs?.map((song, index) =>
-            <SwiperSlide key={index} className='cursor-pointer overflow-hidden rounded-lg' >
-              <div className=" group container   rounded-md  justify-center items-center  mx-auto  relative"><img className='rounded-lg shadow-lg  shadow-[#0000003b]' src={song.photo} alt="Shoes" />
-                <div className="absolute z-10 opacity-0 group-hover:opacity-100  top-16 left-16">
-                  <div className=" text-center">
-                    <button onClick={() => setMusicfile(song)} className="text-center rounded-lg p-2 bg-white  text-gray-400 font-bold text-lg">Play</button>
-                  </div>
-                </div>
-                <div className=" m-2">
-                  <h2 className="text-[14px] font-bold ">
-                    {song.title}
-                  </h2>
-                  <h2 className="font-semibold text-slate-500 text-sm">
-                    {song.Artist}
-                  </h2>
-
-                </div>
-                <div>
-                </div>
-
+            <SwiperSlide>
+              <div className=''>
+                <img className='w-10/12 rounded-sm  object-contain ' src={song?.photo} alt="" />
               </div>
-
-
-            </SwiperSlide>)
+            </SwiperSlide>
+          )
         }
       </Swiper >
 
@@ -72,3 +55,29 @@ const Songs = () => {
 };
 
 export default Songs;
+
+
+// <SwiperSlide key={index} className='cursor-pointer overflow-hidden rounded-lg' >
+//   <div className=" group container   rounded-md  justify-center items-center  mx-auto  relative">
+//     <img className='rounded-lg  shadow-lg  shadow-[#0000003b]' src={song.photo} alt="Shoes" />
+//     <div className="absolute z-10 opacity-0 group-hover:opacity-100  top-16 left-16">
+//       <div className=" text-center">
+//         <button onClick={() => setMusicfile(song)} className="text-center rounded-lg p-2 bg-white  text-gray-400 font-bold text-lg">Play</button>
+//       </div>
+//     </div>
+//     <div className=" m-2">
+//       <h2 className="text-[14px] font-bold ">
+//         {song.title}
+//       </h2>
+//       <h2 className="font-semibold text-slate-500 text-sm">
+//         {song.Artist}
+//       </h2>
+
+//     </div>
+//     <div>
+//     </div>
+
+//   </div>
+
+
+// </SwiperSlide>

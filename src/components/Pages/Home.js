@@ -15,7 +15,7 @@ const Home = () => {
           <NowPlaying></NowPlaying>
 
         </div>
-        <div className='col-span-4 border '>
+        <div className='col-span-4 h-full  '>
 
           <MostPlayed></MostPlayed>
         </div>
