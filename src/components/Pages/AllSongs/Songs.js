@@ -8,6 +8,7 @@ import './Allsongs.css'
 import { useQuery } from '@tanstack/react-query';
 import './Songs.css'
 import { RexroxContexts } from '../../../MusicContext/MusicContexts';
+import { IoPlay } from 'react-icons/io5';
 
 const Songs = () => {
   const { setMusicfile } = useContext(RexroxContexts);
@@ -24,9 +25,10 @@ const Songs = () => {
 
   return (
     <div className='  relative p-2 rounded-lg ' >
+
       <Swiper
-        slidesPerView={5}
-        spaceBetween={20}
+        slidesPerView={6}
+        spaceBetween={25}
         slidesPerGroup={1}
         loop={true}
         loopFillGroupWithBlank={true}
@@ -37,16 +39,48 @@ const Songs = () => {
           clickable: true
         }}
         modules={[Pagination, Navigation]}
-        className="mySwiper overflow-hidden   disable-text-selection  rounded-xl   "
+        className="mySwiper overflow-hidden disable-text-selection  rounded-xl   "
       >
         {
           songs?.map((song, index) =>
-            <SwiperSlide>
-              <div className=''>
-                <img className='w-10/12 rounded-sm  object-contain ' src={song?.photo} alt="" />
-              </div>
-            </SwiperSlide>
-          )
+            <SwiperSlide key={index} className='cursor-pointer overflow-hidden rounded-lg flex-col ' >
+              <>
+                {/* Song Thumbnail */}
+                <div class="flex items-center justify-center rounded-2xl">
+                  <div class="relative block  hover:bg-black rounded-2xl group"
+                  >
+                    <img class="absolute  rounded-2xl inset-0 object-cover 
+                                w-full h-full group-hover:opacity-50"
+                      src={song?.photo} />
+                    <div class="relative p-5">
+                      <div class="">
+                        <div class="transition-all w-full  transform 
+                                translate-y-8 opacity-0 
+                                group-hover:opacity-100 
+                                group-hover:translate-y-0">
+                          <div class="p-2 justify-center flex  flex-col items-center text-center">
+                            <p class=" text-white text-sm xs">
+                              {song?.title}
+                            </p>
+                            {/* play button */}
+                            <button onClick={() => setMusicfile(song)} class="px-4 py-2 mt-4 text-sm 
+                                            text-white  border ">
+                              <IoPlay className='text-xl' />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* song title */}
+                <div>
+                  <p className='text-sm break-words '>{song?.title}</p>
+                </div>
+              </>
+
+            </SwiperSlide>)
         }
       </Swiper >
 
@@ -55,29 +89,3 @@ const Songs = () => {
 };
 
 export default Songs;
-
-
-// <SwiperSlide key={index} className='cursor-pointer overflow-hidden rounded-lg' >
-//   <div className=" group container   rounded-md  justify-center items-center  mx-auto  relative">
-//     <img className='rounded-lg  shadow-lg  shadow-[#0000003b]' src={song.photo} alt="Shoes" />
-//     <div className="absolute z-10 opacity-0 group-hover:opacity-100  top-16 left-16">
-//       <div className=" text-center">
-//         <button onClick={() => setMusicfile(song)} className="text-center rounded-lg p-2 bg-white  text-gray-400 font-bold text-lg">Play</button>
-//       </div>
-//     </div>
-//     <div className=" m-2">
-//       <h2 className="text-[14px] font-bold ">
-//         {song.title}
-//       </h2>
-//       <h2 className="font-semibold text-slate-500 text-sm">
-//         {song.Artist}
-//       </h2>
-
-//     </div>
-//     <div>
-//     </div>
-
-//   </div>
-
-
-// </SwiperSlide>

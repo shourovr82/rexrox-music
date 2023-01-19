@@ -18,13 +18,14 @@ const AllSongs = () => {
   return (
     <div className='py-2 '>
       <div>
+        {/* Load total Songs length */}
         <div className='flex items-center gap-4 '>
           <h2 className='text-xl font-bold'>All Songs</h2>
           <span className='text-slate-400 font-semibold text-xs'> {songs?.length && `- Total ${songs?.length}`}+</span>
         </div>
 
         {/*  all songs page */}
-        <div className=''>
+        <div>
           <Songs></Songs>
         </div>
 

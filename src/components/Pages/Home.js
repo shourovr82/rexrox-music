@@ -6,19 +6,29 @@ import NowPlaying from './NowPlaying/NowPlaying';
 const Home = () => {
   return (
     <div>
+
+      {/*  All Songs with carousel */}
       <div className='px-5 '>
         <AllSongs></AllSongs>
       </div>
+      {/*  All Songs with carousel End*/}
+
 
       <div className='grid grid-cols-7 gap-5  px-5'>
-        <div className='col-span-3 border '>
+
+        {/*  Now Playing section start */}
+        <div className='col-span-3'>
           <NowPlaying></NowPlaying>
-
         </div>
-        <div className='col-span-4 h-full  '>
+        {/*  Now Playing section End*/}
 
+
+        {/*  Most Played Songs with list section Start*/}
+        <div className='col-span-4 h-full  '>
           <MostPlayed></MostPlayed>
         </div>
+        {/*  Most Played Songs End*/}
+
       </div>
     </div>
 
