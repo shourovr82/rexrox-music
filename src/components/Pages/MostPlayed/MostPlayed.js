@@ -15,9 +15,8 @@ const MostPlayed = () => {
         </div>
       </div>
       {/*  mostly played list song */}
-      <div className='flex flex-col gap-4 overflow-scroll  h-[35vh] scrolls-s px-10'>
+      <div className='flex flex-col gap-4 overflow-scroll  h-[40vh] scrolls-s px-10'>
 
-        <MostPlayCard />
         <MostPlayCard />
         <MostPlayCard />
         <MostPlayCard />

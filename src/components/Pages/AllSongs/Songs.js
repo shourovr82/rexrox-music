@@ -52,7 +52,7 @@ const Songs = () => {
                     <img class="absolute  rounded-2xl inset-0 object-cover 
                                 w-full h-full group-hover:opacity-50"
                       src={song?.photo} />
-                    <div class="relative p-5">
+                    <div class="relative  p-5">
                       <div class="">
                         <div class="transition-all w-full  transform 
                                 translate-y-8 opacity-0 
