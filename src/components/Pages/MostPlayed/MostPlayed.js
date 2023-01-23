@@ -30,6 +30,11 @@ const MostPlayed = () => {
         <MostPlayCard />
         <MostPlayCard />
         <MostPlayCard />
+        <MostPlayCard />
+        <MostPlayCard />
+        <MostPlayCard />
+        <MostPlayCard />
+        <MostPlayCard />
       </div>
 
     </div>
