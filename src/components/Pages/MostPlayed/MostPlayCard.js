@@ -18,7 +18,7 @@ const MostPlayCard = () => {
           <p>Post Malone</p>
         </div>
         <div>
-          <p>4.31</p>
+          <p className='text-xs font-semibold'>4.31</p>
         </div>
         <div>
           <span>
