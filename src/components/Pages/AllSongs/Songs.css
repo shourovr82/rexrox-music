@@ -1,5 +1,5 @@
 .content-div:hover {
   background-image:
     linear-gradient(to right,
-      rgba(126, 213, 111, 0.801), hsla(160, 64%, 43%, 0.829));
+      rgba(126, 213, 111, 0.810), hsla(160, 64%, 43%, 0.829));
 }
